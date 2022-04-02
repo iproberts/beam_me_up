@@ -4,15 +4,25 @@
 # Dependencies
 Install the [TexSoup package](https://texsoup.alvinwan.com/).
 
-# Use
+# How To Use
+1. Paste the `beam_me_up.py` file in your paper's main directory.
+2. Run `beam_me_up.py`. 
+3. Wait a few seconds.
+4. Open `slides/slides.tex` and compile it (e.g., using TeXstudio).
+
+# Details
 By default, `beam_me_up` assumes that users make use of several section files in their paper. For instance, the `main.tex` file of the paper may look something like this.
 ```
+\documentclass[...]{...}
 ...
+\input{math.tex}
+
 \begin{document}
 
 \input{sec-introduction.tex}
 \input{sec-system-model.tex}
-...
+\input{sec-contribution.tex}
+\input{sec-results.tex}
 \input{sec-conclusion.tex}
 
 \end{document}
@@ -40,8 +50,15 @@ For each `sec-*.tex` file, `beam_me_up` will extract each instance of these envi
 
 `beam_me_up` also copies several folders by default into `slides/`. For example, it will copy the `fig` directory to create `slides/fig`. This allows filenames to be preserved when compiling the slide deck from within the `slides/` directory and allows users to cut the `slides/` directory from their working directory and paste it elsewhere.
 
-# How To Use
-1. Paste the `beam_me_up.py` file in your paper's main directory.
-2. Run `beam_me_up.py`. 
-3. Wait a few seconds.
-4. Open `slides/slides.tex` and compile it (e.g., using TeXstudio).
+# Example Output
+```
+slides/fig/
+slides/plots/
+slides/slides.tex
+slides/sec-introduction.tex
+slides/sec-system-model.tex
+slides/sec-contribution.tex
+slides/sec-results.tex
+slides/sec-conclusion.tex
+slides/math.tex
+```
