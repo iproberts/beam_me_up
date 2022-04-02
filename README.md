@@ -65,6 +65,7 @@ slides/sec-contribution.tex
 slides/sec-results.tex
 slides/sec-conclusion.tex
 slides/math.tex
+slides/glossary.tex
 ```
 
 Example `slides/slides.tex` file (sections are output in alphabetical order).
