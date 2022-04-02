@@ -48,6 +48,8 @@ For each `sec-*.tex` file, `beam_me_up` will extract each instance of these envi
 
 `beam_me_up` will create a `slides/slides.tex` file, which it will populate as the main Beamer slide deck file. This file can be compiled to produce your PDF slide deck.
 
+It is assumed that there exists `math.tex` and  `glossary.tex`, which `beam_me_up` will also copy into `slides/` and will include in the preamble of the `slides/slides.tex` Beamer file.
+
 `beam_me_up` also copies several folders by default into `slides/`. For example, it will copy the `fig` directory to create `slides/fig`. This allows filenames to be preserved when compiling the slide deck from within the `slides/` directory and allows users to cut the `slides/` directory from their working directory and paste it elsewhere.
 
 # Example Output
