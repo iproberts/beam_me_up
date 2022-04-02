@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Sun May 31 16:12:06 2020
-
-@author: ian
-"""
 
 def readfile(filename):
   f = open(filename,'r')
