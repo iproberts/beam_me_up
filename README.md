@@ -51,6 +51,7 @@ For each `sec-*.tex` file, `beam_me_up` will extract each instance of these envi
 `beam_me_up` also copies several folders by default into `slides/`. For example, it will copy the `fig` directory to create `slides/fig`. This allows filenames to be preserved when compiling the slide deck from within the `slides/` directory and allows users to cut the `slides/` directory from their working directory and paste it elsewhere.
 
 # Example Output
+Example files output by `beam_me_up`.
 ```
 slides/fig/
 slides/plots/
@@ -61,4 +62,38 @@ slides/sec-contribution.tex
 slides/sec-results.tex
 slides/sec-conclusion.tex
 slides/math.tex
+```
+
+Example `slides/slides.tex` file (sections are output in alphabetical order).
+```
+\documentclass[aspectratio=1610,smaller]{beamer}
+
+\usepackage{amsmath,amssymb,lmodern}
+\usepackage[T1]{fontenc}
+\usefonttheme[onlymath]{serif}
+\usepackage[caption=false,font=footnotesize]{subfig}
+
+\newcommand{\envalias}[2]{\newenvironment{#1}{\begin{#2}}{\end{#2}}}
+\envalias{figure*}{figure}
+
+\title{Title Here}
+\subtitle{Subtitle Here}
+\author{Author Here}
+\institute{Institute Here}
+\date{\today}
+
+\input{math.tex}
+\input{glossary.tex}
+
+\begin{document} 
+
+\maketitle
+
+\input{sec-conclusion.tex}
+\input{sec-contribution.tex}
+\input{sec-introduction.tex}
+\input{sec-results.tex}
+\input{sec-system-model.tex}
+
+\end{document}
 ```
