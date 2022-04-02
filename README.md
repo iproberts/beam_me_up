@@ -4,4 +4,44 @@
 # Dependencies
 Install the [TexSoup package](https://texsoup.alvinwan.com/).
 
+# Use
+By default, `beam_me_up` assumes that users make use of several section files in their paper. For instance, the `main.tex` file of the paper may look something like this.
+```
+...
+\begin{document}
+
+\input{sec-introduction.tex}
+\input{sec-system-model.tex}
+...
+\input{sec-conclusion.tex}
+
+\end{document}
+```
+Here, `sec-*.tex` contains LaTeX for a given section (e.g., a System Model section) and exists in the same directory as `main.tex`. You can tailor `beam_me_up` to work with whatever convention you use. For instance, if you just use a single `main.tex` file, simply only have `beam_me_up` search through that single file.
+
+By default, `beam_me_up` will search through all LaTeX files with the form `sec-*.tex`.
+It will search for specific environments within each.
+Currently, `beam_me_up` will search for the following LaTeX environments:
+- `figure`, `figure*`
+- `equation`, `equation*`
+- `align`, `align*`
+- `gather`, `gather*`
+- `subequations`, `subequations*`
+- `theorem`, `theorem*`
+- `lemma`, `lemma*`
+- `corollary`,`corollary*`
+- `definition`,`definition*`
+
+`beam_me_up` will create a `slides/` directory wherever it is being run and will place all of its output there.
+
+For each `sec-*.tex` file, `beam_me_up` will extract each instance of these environments and place it verbatim on its own Beamer frame in a file `slides/sec-*.tex`.
+
+`beam_me_up` will create a `slides/slides.tex` file, which it will populate as the main Beamer slide deck file. This file can be compiled to produce your PDF slide deck.
+
+`beam_me_up` also copies several folders by default into `slides/`. For example, it will copy the `fig` directory to create `slides/fig`. This allows filenames to be preserved when compiling the slide deck from within the `slides/` directory and allows users to cut the `slides/` directory from their working directory and paste it elsewhere.
+
 # How To Use
+1. Paste the `beam_me_up.py` file in your paper's main directory.
+2. Run `beam_me_up.py`. 
+3. Wait a few seconds.
+4. Open `slides/slides.tex` and compile it (e.g., using TeXstudio).
