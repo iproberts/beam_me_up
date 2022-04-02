@@ -16,6 +16,7 @@ By default, `beam_me_up` assumes that users make use of several section files in
 \documentclass[...]{...}
 ...
 \input{math.tex}
+\input{glossary.tex}
 
 \begin{document}
 
